@@ -20,7 +20,7 @@ export function LoanApplicantEducation({
         <label className="required">
           Haridus:
           <select
-            //required
+            required
             onChange={(e) => {
               updateFields({ education: e.target.value });
             }}
@@ -44,7 +44,7 @@ export function LoanApplicantEducation({
         <label className="required">
           Elukutse/staatus:
           <select
-            //required
+            required
             onChange={(e) => {
               updateFields({ job: e.target.value });
             }}

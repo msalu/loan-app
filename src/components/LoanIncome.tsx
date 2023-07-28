@@ -17,7 +17,7 @@ export function LoanIncome({
   updateFields,
 }: LoanIncomeProps) {
   const [income, setIncome] = useState<string>(netoIncome || "1000");
-  const handleInputChange = (e: SyntheticEvent) => {
+  const handleCheckboxInputChange = (e: SyntheticEvent) => {
     const inputElement = e.target as HTMLInputElement;
     updateFields({ outgoings: inputElement.value });
   };
@@ -69,7 +69,7 @@ export function LoanIncome({
               required
               name="checkbox"
               type="radio"
-              onChange={handleInputChange}
+              onChange={handleCheckboxInputChange}
               onInvalid={(e: any) =>
                 e.target.setCustomValidity("Väli on kohustuslik!")
               }
@@ -83,7 +83,7 @@ export function LoanIncome({
             <input
               name="checkbox"
               type="radio"
-              onChange={handleInputChange}
+              onChange={handleCheckboxInputChange}
               onInvalid={(e: any) =>
                 e.target.setCustomValidity("Väli on kohustuslik!")
               }
