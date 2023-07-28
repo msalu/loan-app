@@ -50,7 +50,6 @@ export function LoanAddInfo({
       <div style={{ display: "flex", flexDirection: "column" }}>
         <textarea
           className="add-info"
-          //required
           autoFocus
           rows={5}
           cols={5}
@@ -59,7 +58,7 @@ export function LoanAddInfo({
           value={addInfo}
           onChange={(e) => updateFields({ addInfo: e.target.value })}
           onInvalid={(e: any) =>
-            e.target.setCustomValidity("Märgitud väli on täitmata!")
+            e.target.setCustomValidity("Väli on kohustuslik!")
           }
           onInput={(e: any) => e.target.setCustomValidity("")}
         />
@@ -69,14 +68,13 @@ export function LoanAddInfo({
       </div>
       <br />
       <div className="agreement-checkboxes">
-        <label className="required">
+        <label>
           Kliendiandmete töötlemise põhimõtted:
           <input
-            //required
             type="checkbox"
             onChange={FirstCheckboxHandler}
             onInvalid={(e: any) =>
-              e.target.setCustomValidity("Märgitud väli on täitmata!")
+              e.target.setCustomValidity("Väli on kohustuslik!")
             }
             onInput={(e: any) => e.target.setCustomValidity("")}
             value="GDPA"
@@ -84,14 +82,13 @@ export function LoanAddInfo({
           />
         </label>
         <br />
-        <label className="required">
+        <label>
           Nõustun isikuandmete töötlemisega:
           <input
-            //required
             type="checkbox"
             onChange={SecondCheckboxHandler}
             onInvalid={(e: any) =>
-              e.target.setCustomValidity("Märgitud väli on täitmata!")
+              e.target.setCustomValidity("Väli on kohustuslik!")
             }
             onInput={(e: any) => e.target.setCustomValidity("")}
             value="personalInfo"

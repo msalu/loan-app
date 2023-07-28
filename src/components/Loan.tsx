@@ -1,4 +1,4 @@
-import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { FormWrapper } from "./FormWrapper";
 
 type LoanData = {
@@ -22,17 +22,25 @@ export function Loan({
     paybackDate !== "" ? paybackDate : defaultDate
   );
 
-  const dateChangeHandler = (event: SyntheticEvent) => {
-    const inputElement = event.target as HTMLInputElement;
-    setDate(inputElement.value);
+  /*const handleInputChange = (e: SyntheticEvent) => {
+    const inputElement = e.target as HTMLInputElement;
     updateFields({ paybackDate: inputElement.value });
+  };*/
+
+  const dateChangeHandler = (e: SyntheticEvent) => {
+    const inputElement = e.target as HTMLInputElement;
+    setDate(inputElement.value);
   };
+
+  useEffect(() => {
+    date && updateFields({ paybackDate: date });
+  }, [date, updateFields]);
 
   return (
     <FormWrapper title="Laenuinfo">
       <label className="required">Laenusumma</label>
       <input
-        //required
+        required
         autoFocus
         type="number"
         min="300"
@@ -41,7 +49,7 @@ export function Loan({
         value={loanSum}
         onChange={(e) => updateFields({ loanSum: e.target.value })}
         onInvalid={(e: any) =>
-          e.target.setCustomValidity("Märgitud väli on täitmata!")
+          e.target.setCustomValidity("Väli on kohustuslik!")
         }
         onInput={(e: any) => e.target.setCustomValidity("")}
       />
@@ -49,7 +57,7 @@ export function Loan({
         Laenu periood (<i>kuud </i>)
       </label>
       <input
-        //required
+        required
         type="number"
         min="6"
         max="60"
@@ -57,7 +65,7 @@ export function Loan({
         value={loanPeriod}
         onChange={(e) => updateFields({ loanPeriod: e.target.value })}
         onInvalid={(e: any) =>
-          e.target.setCustomValidity("Märgitud väli on täitmata!")
+          e.target.setCustomValidity("Väli on kohustuslik!")
         }
         onInput={(e: any) => e.target.setCustomValidity("")}
       />
@@ -66,11 +74,10 @@ export function Loan({
         required
         min={1}
         type="date"
-        value={paybackDate || date}
-        //onChange={(e) => updateFields({ paybackDate: e.target.value })}
+        value={date}
         onChange={dateChangeHandler}
         onInvalid={(e: any) =>
-          e.target.setCustomValidity("Märgitud väli on täitmata!")
+          e.target.setCustomValidity("Väli on kohustuslik!")
         }
         onInput={(e: any) => e.target.setCustomValidity("")}
       />

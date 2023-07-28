@@ -16,7 +16,6 @@ type SummaryData = {
   agreement: string;
   gdpa: string;
   personalInfo: string;
-
 };
 
 type LoanSummaryProps = SummaryData & {
@@ -38,10 +37,13 @@ export function LoanSummary({
   addInfo,
   agreement,
   gdpa,
-  personalInfo
+  personalInfo,
 }: LoanSummaryProps) {
+  const formatDate = (date: string) => {
+    let localDate = new Date(date);
+    return localDate.toLocaleDateString("et-EE");
+  };
 
-  
   return (
     <FormWrapper title="Laenutaotluse ülevaade">
       <table>
@@ -56,7 +58,7 @@ export function LoanSummary({
           </tr>
           <tr>
             <td>Tagasimakse:</td>
-            <td>{paybackDate}</td>
+            <td>{formatDate(paybackDate)}</td>
           </tr>
           <tr>
             <td>Netosissetulek:</td>
@@ -100,9 +102,7 @@ export function LoanSummary({
           </tr>
           <tr>
             <td>Isikuandmete töötlemine:</td>
-            <td>
-              {personalInfo !== "" ? "Olen nõus!" : "Ei ole nõus!"}
-            </td>
+            <td>{personalInfo !== "" ? "Olen nõus!" : "Ei ole nõus!"}</td>
           </tr>
         </tbody>
       </table>

@@ -1,4 +1,4 @@
-import { SyntheticEvent } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { FormWrapper } from "./FormWrapper";
 import Tooltip from "../tooltip/Tooltip";
 
@@ -16,26 +16,36 @@ export function LoanIncome({
   netoIncome,
   updateFields,
 }: LoanIncomeProps) {
+  const [income, setIncome] = useState<string>(netoIncome || "1000");
   const handleInputChange = (e: SyntheticEvent) => {
     const inputElement = e.target as HTMLInputElement;
     updateFields({ outgoings: inputElement.value });
   };
+
+  const handleNetoIncomeChange = (e: SyntheticEvent) => {
+    const inputElement = e.target as HTMLInputElement;
+    setIncome(inputElement.value);
+  };
+
+  useEffect(() => {
+    income && updateFields({ netoIncome: income });
+  }, [income, updateFields]);
 
   return (
     <FormWrapper title="Sissetulekud ja kohustused">
       <div>
         <label className="required">Netosissetulek</label>
         <input
-          //required
+          required
           autoFocus
           type="number"
           min="0"
           max="10000"
           step="100"
-          value={netoIncome || 1000}
-          onChange={(e) => updateFields({ netoIncome: e.target.value })}
+          value={income}
+          onChange={handleNetoIncomeChange}
           onInvalid={(e: any) =>
-            e.target.setCustomValidity("Märgitud väli on täitmata!")
+            e.target.setCustomValidity("Väli on kohustuslik!")
           }
           onInput={(e: any) => e.target.setCustomValidity("")}
         />
@@ -56,12 +66,12 @@ export function LoanIncome({
         <div className="outgoings-checkboxes">
           <label>
             <input
-              //required
+              required
               name="checkbox"
               type="radio"
               onChange={handleInputChange}
               onInvalid={(e: any) =>
-                e.target.setCustomValidity("Märgitud väli on täitmata!")
+                e.target.setCustomValidity("Väli on kohustuslik!")
               }
               onInput={(e: any) => e.target.setCustomValidity("")}
               value="Ei"
@@ -75,7 +85,7 @@ export function LoanIncome({
               type="radio"
               onChange={handleInputChange}
               onInvalid={(e: any) =>
-                e.target.setCustomValidity("Märgitud väli on täitmata!")
+                e.target.setCustomValidity("Väli on kohustuslik!")
               }
               onInput={(e: any) => e.target.setCustomValidity("")}
               value="Jah"

@@ -25,7 +25,7 @@ export function LoanApplicantEducation({
               updateFields({ education: e.target.value });
             }}
             onInvalid={(e: any) =>
-              e.target.setCustomValidity("Märgitud väli on täitmata!")
+              e.target.setCustomValidity("Väli on kohustuslik!")
             }
             onInput={(e: any) => e.target.setCustomValidity("")}
             value={education}
@@ -49,7 +49,7 @@ export function LoanApplicantEducation({
               updateFields({ job: e.target.value });
             }}
             onInvalid={(e: any) =>
-              e.target.setCustomValidity("Märgitud väli on täitmata!")
+              e.target.setCustomValidity("Väli on kohustuslik!")
             }
             onInput={(e: any) => e.target.setCustomValidity("")}
             value={job}
