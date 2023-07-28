@@ -1,4 +1,4 @@
-# Home Assignment for Swedbank Frontend DeveloperPosition
+# Home Assignment for Swedbank Frontend Developer Position
 
 
 
