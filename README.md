@@ -30,9 +30,6 @@ Clone the project, import all the files into desired dev environement eg. VCode,
 
 Project is made from scratch without any pre-made frameworks, templates or API's.
 
-### HTML5
-
-- is used for templating.
 
 ### TypeScript
 
@@ -41,5 +38,9 @@ Project is made from scratch without any pre-made frameworks, templates or API's
 ### CSS
 
 - is used for stylizing the whole app including different form elements, intro and summary page.
+
+### HTML5
+
+- is used for templating.
 
 
