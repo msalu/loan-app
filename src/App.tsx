@@ -69,7 +69,7 @@ function App() {
   function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (!isLastStep) return next();
-    alert("Teie laenutaotlus on esitatud ja ülevaatamisel!");
+    window.location.assign("https://www.swedbank.ee/private?language=EST");
   }
 
   return (
@@ -91,7 +91,7 @@ function App() {
               )}
               <button type="submit" style={{ cursor: "pointer" }}>
                 {isLastStep
-                  ? "Esita"
+                  ? "Esita ja panka"
                   : isFirstStep
                   ? "Täidan taotluse"
                   : "Edasi"}
@@ -101,10 +101,6 @@ function App() {
         </div>
       </div>
     </>
-
-    /*<div style={{ position: "absolute", top: ".5rem", right: ".5rem" }}>
-      {currentStepIndex + 1} / {steps.length}
-    </div>*/
   );
 }
 
