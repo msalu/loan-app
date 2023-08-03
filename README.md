@@ -24,8 +24,8 @@ Clone the project or download as a zip-file, import all the files into desired d
     - clone the project with git or download as a zip-file
     - import the folder into desired dev environment
     - select the corresponding folder
-    - install all the modules and packages with terminal command: **$ npm i**
-    - after installation deploy the app with following command: **$ npm start**
+    - install all the modules and packages with terminal command: $ npm i
+    - after installation deploy the app with following command: $ npm start
 
 ---
 
