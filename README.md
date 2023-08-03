@@ -9,7 +9,7 @@ Project consists three parts: introduction, questions and summary part. Introduc
 
 ## Running App
 
-Clone the project or download as a zip-file, import all the files into desired dev environement eg. VCode, select the project directory and run in terminal: **npm i**. It installs all the modules that are listed on package.json file and their dependencies. For next run **npm start** which opens the app in the development mode, to view it open [http://localhost:3000](http://localhost:3000) in the browser.
+Clone the project or download as a zip-file, import all the files into desired dev environement eg. VCode, select the project directory and run in terminal: **_npm i_**. It installs all the modules that are listed on package.json file and their dependencies. For next run **_npm start_** which opens the app in the development mode, to view it open [http://localhost:3000](http://localhost:3000) in the browser.
 
 ---
 
