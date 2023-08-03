@@ -9,7 +9,7 @@ Project consists three parts: introduction, questions and summary part. Introduc
 
 ## Running App
 
-Clone the project, import all the files into desired dev environement eg. VCode, select the project directory and run in terminal: **npm start**. It opens the app in the development mode, to view it open [http://localhost:3000](http://localhost:3000) in the browser.
+Clone the project or download as a zip-file, import all the files into desired dev environement eg. VCode, select the project directory and run in terminal: **npm i**. It installs all the modules that are listed on package.json file and their dependencies. For next run **npm start** which opens the app in the development mode, to view it open [http://localhost:3000](http://localhost:3000) in the browser.
 
 ---
 
@@ -17,16 +17,19 @@ Clone the project, import all the files into desired dev environement eg. VCode,
 
     $ git clone https://github.com/msalu/loan-app.git
     $ cd loan-app
-    $ npm install
-
-## Start & watch
-
+    $ npm i
     $ npm start
-    open (http://localhost:3000) in browser
+
+## Start & Watch
+    - clone the project with git or download as a zip-file
+    - import the folder into desired dev environment
+    - select the corresponding folder
+    - install all the modules and packages with terminal command: **$ npm i**
+    - after installation deploy the app with following command: **$ npm start**
 
 ---
 
-## Languages & tools
+## Languages & Tools
 
 Project is made from scratch without any pre-made frameworks, templates or API's.
 
